@@ -1,0 +1,260 @@
+:root {
+    --wiki-bg: #ffffff;
+    --wiki-text: #202122;
+    --wiki-link: #0645ad;
+    --wiki-link-visited: #0b0080;
+    --wiki-border: #a2a9b1;
+    --wiki-sidebar-bg: #f8f9fa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+    line-height: 1.6;
+    color: var(--wiki-text);
+    background-color: var(--wiki-bg);
+}
+
+.wiki-container {
+    display: flex;
+    max-width: 100%;
+}
+
+.wiki-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--wiki-sidebar-bg);
+    border-right: 1px solid var(--wiki-border);
+    overflow-y: auto;
+    padding: 1rem;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.wiki-content {
+    margin-left: 320px;
+    padding: 3rem 3rem;
+    min-height: 100vh;
+}
+
+h1 {
+    font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+    border-bottom: 1px solid var(--wiki-border);
+    padding-bottom: 0.3em;
+    margin-bottom: 0.5em;
+    font-size: 2em;
+}
+
+h2 {
+    font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+    border-bottom: 1px solid var(--wiki-border);
+    padding-bottom: 0.2em;
+    margin: 1em 0 0.5em;
+    font-size: 1.5em;
+}
+
+.wiki-nav ul {
+    list-style: none;
+    padding-left: 0.5em;
+}
+
+.wiki-nav > ul > li > ul {
+    display: none;
+    padding-left: 1.5em;
+}
+
+.wiki-nav > ul > li > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.wiki-nav > ul > li > a::after {
+    content: '▼';
+    font-size: 0.8em;
+    transition: transform 0.3s;
+}
+
+.wiki-nav > ul > li > a.collapsed::after {
+    transform: rotate(-90deg);
+}
+
+.wiki-nav .active > ul {
+    display: block;
+}
+
+.wiki-nav li {
+    margin: 0.5em 0;
+}
+
+.wiki-nav a {
+    color: var(--wiki-link);
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.wiki-nav a:hover {
+    text-decoration: underline;
+}
+
+.wiki-section {
+    margin: 2.5em 0;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid var(--wiki-border);
+}
+
+.wiki-subtitle {
+    color: #54595d;
+    font-style: italic;
+    margin-bottom: 1.5em;
+}
+
+p {
+    margin: 1em 0;
+}
+
+@media (max-width: 768px) {
+    .wiki-sidebar {
+        display: none;
+    }
+    
+    .wiki-content {
+        margin-left: 0;
+        padding: 1rem;
+    }
+}
+
+.wiki-content ul, .wiki-content ol {
+    margin: 1em 0;
+    padding-left: 2.5em;
+}
+
+.wiki-content dl {
+    margin: 1em 0;
+}
+
+.wiki-content dt {
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+.wiki-content dd {
+    margin-left: 2em;
+    margin-bottom: 0.5em;
+}
+
+.wiki-practice {
+    background-color: #f8f9fa;
+    border: 1px solid var(--wiki-border);
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 3px;
+}
+
+.wiki-practice h3 {
+    color: #000;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+blockquote {
+    margin: 1em 0;
+    padding-left: 1em;
+    border-left: 3px solid var(--wiki-border);
+    color: #54595d;
+}
+
+code {
+    background-color: #f8f9fa;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 1em 0;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid var(--wiki-border);
+    padding: 0.5em;
+}
+
+th {
+    background-color: #f8f9fa;
+}
+
+.wiki-box {
+    background-color: #f8f9fa;
+    border: 1px solid var(--wiki-border);
+    padding: 1.5em;
+    margin: 1em 0;
+    border-radius: 3px;
+}
+
+.wiki-subsection {
+    margin: 2em 0;
+    padding-left: 1em;
+}
+
+.wiki-subsection h3 {
+    color: #000;
+    font-size: 1.2em;
+    margin-bottom: 0.8em;
+    border-bottom: 1px solid #eaecf0;
+    padding-bottom: 0.3em;
+}
+
+.wiki-table {
+    overflow-x: auto;
+    margin: 1.5em 0;
+}
+
+.wiki-table table {
+    min-width: 100%;
+    border-collapse: collapse;
+}
+
+.wiki-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    text-align: left;
+}
+
+.wiki-table th, .wiki-table td {
+    padding: 0.5em;
+    border: 1px solid var(--wiki-border);
+}
+
+.wiki-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.wiki-content strong {
+    font-weight: 600;
+}
+
+.wiki-content em {
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .wiki-table {
+        margin: 1em -1em;
+        width: calc(100% + 2em);
+    }
+    
+    .wiki-table table {
+        font-size: 0.9em;
+    }
+} 
